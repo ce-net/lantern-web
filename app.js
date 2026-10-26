@@ -20,7 +20,7 @@ function status(msg, isError) {
 }
 
 function render(events) {
-  events.sort((a, b) => String(a.when).localeCompare(String(b.when)));
+  events.sort((a, b) => Date.parse(a.when) - Date.parse(b.when));
   $("#events").innerHTML = events.length ? events.map((e) => `
     <li data-id="${esc(e.id)}">
       <b>${esc(e.title)}</b><br>
@@ -51,8 +51,8 @@ $("#new-event").addEventListener("submit", async (ev) => {
   try {
     await api("/api/events", { method: "POST", body: JSON.stringify(data) });
     f.reset();
+    await load();
     status("Event created.");
-    load();
   } catch (err) {
     status(`Could not create event: ${err.message}`, true);
   }
