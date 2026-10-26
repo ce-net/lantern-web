@@ -1,0 +1,21 @@
+<!doctype html>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width">
+<title>Lantern</title>
+<link rel="stylesheet" href="style.css">
+<h1>Lantern</h1>
+<p class="sub">What's on in the neighbourhood</p>
+
+<form id="new-event">
+  <h2>Create an event</h2>
+  <input name="title" placeholder="Title" required>
+  <input name="when" type="datetime-local" required>
+  <input name="where" placeholder="Where" required>
+  <textarea name="description" placeholder="Description (optional)"></textarea>
+  <button>Create</button>
+</form>
+
+<label class="me">Your name for RSVPs <input id="name" placeholder="e.g. Sam"></label>
+<p id="status" role="status"></p>
+<ul id="events"></ul>
+<script src="config.js"></script>
+<script src="app.js"></script>
