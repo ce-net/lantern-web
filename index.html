@@ -4,5 +4,14 @@
 <link rel="stylesheet" href="style.css">
 <h1>Lantern</h1>
 <p class="sub">What's on in the neighbourhood</p>
+<form id="new-event">
+  <h2>Add an event</h2>
+  <input name="title" placeholder="Title" required>
+  <input name="when" type="datetime-local" required>
+  <input name="where" placeholder="Where" required>
+  <textarea name="description" placeholder="Description (optional)"></textarea>
+  <button>Add event</button>
+</form>
+<p id="status" role="status"></p>
 <ul id="events"></ul>
 <script src="app.js"></script>
